@@ -27,7 +27,7 @@ public class Tess4jTest {
             long start = System.currentTimeMillis();
             File[] gsFiles = PdfUtilities.convertPdf2Png(pdf);
             long gsFinish = System.currentTimeMillis();
-            File[] pdfBoxFiles = convertPdf2PngUsingGhostscript(pdf);
+            File[] pdfBoxFiles = convertPdf2PngUsingPDFBox(pdf);
             long pdfBoxFinish = System.currentTimeMillis();
 
             System.out.println("---- PDF: " + pdf + " ---");
@@ -75,7 +75,7 @@ public class Tess4jTest {
         }
     }
 
-    public static File[] convertPdf2PngUsingGhostscript(File inputPdfFile)  throws Exception {
+    public static File[] convertPdf2PngUsingPDFBox(File inputPdfFile)  throws Exception {
         File imageDir = inputPdfFile.getParentFile();
 
         if (imageDir == null) {
